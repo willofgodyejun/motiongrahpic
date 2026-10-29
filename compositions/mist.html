@@ -1,0 +1,117 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "KMyungjo";
+      src: local("AppleMyungjo");
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #1b120d;
+    }
+    #mist-cam {
+      position: absolute;
+      inset: 0;
+    }
+    #mist-plate {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      object-fit: cover;
+    }
+    #mist-dark {
+      position: absolute;
+      inset: 0;
+      background: #1b120d;
+      opacity: 0;
+    }
+    #mist-text {
+      position: absolute;
+      left: 200px;
+      top: 150px;
+      font-family: "KMyungjo";
+      color: #1b120d;
+      white-space: nowrap;
+    }
+    #mist-line1 {
+      font-size: 76px;
+      letter-spacing: 0.14em;
+      line-height: 1.2;
+    }
+    .mist-w {
+      display: inline-block;
+      margin-right: 0.35em;
+      opacity: 0;
+    }
+    #mist-line2 {
+      font-size: 210px;
+      letter-spacing: 0.08em;
+      line-height: 1.1;
+      opacity: 0;
+    }
+    .mist-ch {
+      display: inline-block;
+    }
+  </style>
+  <div data-hf-id="hf-v2a6" id="root" data-composition-id="mist" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-p44l" id="mist-cam" data-layout-allow-overflow>
+      <img data-hf-id="hf-2t3q" id="mist-plate" src="assets/photos/fog_bled.jpg" alt="안개가 걷히는 가을 호수" />
+    </div>
+    <div data-hf-id="hf-mr0i" id="mist-text">
+      <div data-hf-id="hf-b4dq" id="mist-line1"><span data-hf-id="hf-vfvm" class="mist-w">바람이</span><span data-hf-id="hf-8pja" class="mist-w">먼저</span></div>
+      <div data-hf-id="hf-769p" id="mist-line2"><span data-hf-id="hf-96iy" class="mist-ch">물</span><span data-hf-id="hf-0u3a" class="mist-ch">든</span><span data-hf-id="hf-utnm" class="mist-ch">다</span></div>
+    </div>
+    <div data-hf-id="hf-7cw7" id="mist-dark"></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // Camera: arrives slightly large and settles, drifts, then is sucked in before the drop
+      tl.fromTo("#mist-cam", { scale: 1.12 }, { scale: 1, duration: 1.2, ease: "expo.out" }, 0);
+      tl.to("#mist-cam", { scale: 1.04, duration: 4.3, ease: "power1.inOut" }, 1.2);
+      tl.to("#mist-cam", { scale: 1.35, duration: 1.4, ease: "power3.in" }, 5.5);
+      tl.fromTo("#mist-dark", { opacity: 0 }, { opacity: 0.88, duration: 0.9, ease: "power2.in" }, 6.0);
+
+      // "바람이 먼저" — per word blur-in, no translate
+      gsap.utils.toArray("#mist-line1 .mist-w").forEach((w, i) => {
+        tl.fromTo(
+          w,
+          { opacity: 0, filter: "blur(6px)" },
+          { opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power3.out" },
+          0.4 + i * 0.4,
+        );
+      });
+
+      // "물든다" — the whole line blurs in
+      tl.fromTo(
+        "#mist-line2",
+        { opacity: 0, filter: "blur(10px)" },
+        { opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out" },
+        2.0,
+      );
+
+      // Dyed one letter per musical onset (10.51 / 10.76 / 11.01 absolute)
+      const dye = [3.51, 3.76, 4.01];
+      gsap.utils.toArray("#mist-line2 .mist-ch").forEach((ch, i) => {
+        tl.set(ch, { color: "#e2541b", scale: 1.07 }, dye[i]);
+        tl.to(ch, { scale: 1, duration: 0.3, ease: "expo.out" }, dye[i] + 0.02);
+      });
+
+      // Pulled into the drop with the camera
+      tl.to("#mist-text", {
+        scale: 1.5,
+        opacity: 0,
+        filter: "blur(12px)",
+        transformOrigin: "20% 60%",
+        duration: 1.0,
+        ease: "power3.in",
+      }, 5.6);
+
+      window.__timelines["mist"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>시월 — 찢어지는 고요</title>
+    <meta name="description" content="10월의 풍경과 글귀로 만든 30초 키네틱 타이포그래피 영상" />
+    <meta property="og:title" content="시월 — 찢어지는 고요" />
+    <meta property="og:description" content="10월의 풍경과 글귀로 만든 30초 키네틱 타이포그래피 영상" />
+    <meta property="og:image" content="poster.jpg" />
+    <style>
+      :root {
+        --ground: #f4ede3;
+        --ink: #1b120d;
+        --muted: #6f655c;
+        --accent: #e2541b;
+        --line: rgba(27, 18, 13, 0.14);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --ground: #1b120d;
+          --ink: #f4ede3;
+          --muted: #a89c90;
+          --accent: #e8622a;
+          --line: rgba(244, 237, 227, 0.16);
+        }
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--ground);
+        color: var(--ink);
+        font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 56px 16px 72px;
+      }
+      header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+      }
+      h1 {
+        font-size: clamp(40px, 8vw, 88px);
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+      h1 span {
+        color: var(--accent);
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 15px;
+        letter-spacing: 0.02em;
+      }
+      video {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #1b120d;
+        border-radius: 6px;
+      }
+      .beats {
+        margin-top: 40px;
+        border-top: 1px solid var(--line);
+      }
+      .beat {
+        display: grid;
+        grid-template-columns: 96px 1fr;
+        gap: 16px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 16px;
+      }
+      .beat time {
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+      .beat button {
+        all: unset;
+        cursor: pointer;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+      .beat button:hover,
+      .beat button:focus-visible {
+        color: var(--accent);
+      }
+      footer {
+        margin-top: 40px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      footer a {
+        color: inherit;
+      }
+      @media (max-width: 560px) {
+        main {
+          padding-top: 32px;
+        }
+        .beat {
+          grid-template-columns: 72px 1fr;
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>시월<span>,</span> 찢어지는 고요</h1>
+        <p class="meta">키네틱 타이포그래피 · 30초 · 1920×1080</p>
+      </header>
+
+      <video id="film" src="october-kinetic.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
+
+      <section class="beats" aria-label="장면">
+        <div class="beat"><button data-t="0">0:00</button><div>새벽 호수 — "시월, 아침"이 한 글자씩 수면에 떨어진다</div></div>
+        <div class="beat"><button data-t="7">0:07</button><div>안개 — "바람이 먼저 물든다", 음악에 맞춰 글자가 주홍으로 물든다</div></div>
+        <div class="beat"><button data-t="14">0:14</button><div>드롭 — 붉게 · 더 · 붉게 · 타오르듯 · 흔들리고 · 물들고 · 시월, 글자 속 풍경이 비트마다 바뀐다</div></div>
+        <div class="beat"><button data-t="24">0:24</button><div>단풍 한 가지 — "떨어지는 것도 아름답다"</div></div>
+        <div class="beat"><button data-t="27">0:27</button><div>시월 · OCTOBER</div></div>
+      </section>
+
+      <footer>
+        <p>
+          <a href="https://github.com/heygen-com/hyperframes">HyperFrames</a>로 제작 ·
+          <a href="https://github.com/willofgodyejun/motiongrahpic">소스 코드</a>
+        </p>
+        <p>
+          사진: Wikimedia Commons — Bonnie Moreland (PD) · Davy Sims (CC BY-SA 4.0) · Christophe95 (CC BY-SA 4.0) ·
+          Marcella Astrid (CC BY-SA 3.0) · Michael Garlick (CC BY-SA 2.0) · Douglas P. Perkins (CC BY-SA 3.0) ·
+          Tomi Mäkitalo (CC BY-SA 3.0) · W.carter (CC BY 4.0) · Jason Zhang (CC BY-SA 3.0). 음악: HeyGen.
+        </p>
+      </footer>
+    </main>
+    <script>
+      const film = document.getElementById("film");
+      document.querySelectorAll(".beat button").forEach((b) => {
+        b.addEventListener("click", () => {
+          film.currentTime = Number(b.dataset.t);
+          film.play();
+        });
+      });
+    </script>
+  </body>
+</html>

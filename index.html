@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #1b120d;
+        --ink: #f4ede3;
+        --vermillion: #e2541b;
+        --gold: #e8b23a;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--ground);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-5k8k"
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="30"
+      data-width="1920"
+      data-height="1080"
+      data-motion-blur="on"
+    >
+      <div data-hf-id="hf-cjks" id="dawn" data-composition-id="dawn" data-composition-src="compositions/dawn.html"
+        data-start="0" data-duration="7" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-dcc0" id="mist" data-composition-id="mist" data-composition-src="compositions/mist.html"
+        data-start="7" data-duration="7" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-890q" id="drop" data-composition-id="drop" data-composition-src="compositions/drop.html"
+        data-start="14" data-duration="10" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-glzl" id="fall" data-composition-id="fall" data-composition-src="compositions/fall.html"
+        data-start="24" data-duration="3" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-b90y" id="outro" data-composition-id="outro" data-composition-src="compositions/outro.html"
+        data-start="27" data-duration="3" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080"></div>
+
+      <audio data-hf-id="hf-qmqn" id="bgm" src="assets/audio/bgm.mp3" data-start="0" data-duration="30"
+        data-track-index="2" data-volume="0.9" data-fade-out="0.6"></audio>
+
+      <!-- SFX: each placed so its measured peak lands one frame after its picture -->
+      <audio data-hf-id="hf-h6vv" id="sfx-tick-1" src="assets/sfx/click-soft.mp3" data-start="0.41" data-duration="0.37" data-track-index="3" data-volume="0.35"></audio>
+      <audio data-hf-id="hf-et3o" id="sfx-tick-2" src="assets/sfx/key-press.mp3" data-start="0.96" data-duration="0.43" data-track-index="3" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-0u2g" id="sfx-tick-3" src="assets/sfx/click-soft.mp3" data-start="2.06" data-duration="0.37" data-track-index="3" data-volume="0.35"></audio>
+      <audio data-hf-id="hf-xfii" id="sfx-tick-4" src="assets/sfx/key-press.mp3" data-start="2.61" data-duration="0.43" data-track-index="3" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-bz9o" id="sfx-whoosh-mist" src="assets/sfx/whoosh-cinematic.mp3" data-start="4.53" data-duration="5.54" data-track-index="4" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-hev8" id="sfx-riser" src="assets/sfx/riser.mp3" data-start="10.4" data-duration="3.55" data-track-index="4" data-volume="0.45" data-fade-out="0.1"></audio>
+      <audio data-hf-id="hf-06jy" id="sfx-impact-drop" src="assets/sfx/impact-bass-1.mp3" data-start="13.96" data-duration="2.12" data-track-index="5" data-volume="0.8"></audio>
+      <audio data-hf-id="hf-kg9m" id="sfx-whoosh-fall" src="assets/sfx/whoosh-short.mp3" data-start="23.87" data-duration="0.58" data-track-index="4" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-y9v3" id="sfx-impact-end" src="assets/sfx/impact-bass-1.mp3" data-start="26.96" data-duration="2.12" data-track-index="5" data-volume="0.7"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

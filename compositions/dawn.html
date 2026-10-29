@@ -1,0 +1,127 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "KMyungjo";
+      src: local("AppleMyungjo");
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #1b120d;
+    }
+    #dawn-cam {
+      position: absolute;
+      inset: 0;
+    }
+    #dawn-plate {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      object-fit: cover;
+    }
+    #dawn-title {
+      position: absolute;
+      left: 220px;
+      top: 680px;
+      font-family: "KMyungjo";
+      font-size: 112px;
+      line-height: 1;
+      color: #f4ede3;
+      letter-spacing: 0.18em;
+      white-space: nowrap;
+      text-shadow: 0 2px 18px rgba(27, 18, 13, 0.45);
+    }
+    .dawn-ch {
+      display: inline-block;
+      position: relative;
+      opacity: 0;
+    }
+    .dawn-ring {
+      position: absolute;
+      left: 40%;
+      top: 112%;
+      width: 170px;
+      height: 26px;
+      border: 2px solid rgba(244, 237, 227, 0.75);
+      border-radius: 50%;
+      opacity: 0;
+    }
+    #dawn-sub {
+      position: absolute;
+      left: 228px;
+      top: 860px;
+      font-family: "KMyungjo";
+      font-size: 42px;
+      letter-spacing: 0.12em;
+      color: #f4ede3;
+      white-space: nowrap;
+      text-shadow: 0 2px 14px rgba(27, 18, 13, 0.5);
+    }
+    .dawn-w {
+      display: inline-block;
+      margin-right: 0.4em;
+      opacity: 0;
+    }
+  </style>
+  <div data-hf-id="hf-729d" id="root" data-composition-id="dawn" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-i6ac" id="dawn-cam" data-layout-allow-overflow>
+      <img data-hf-id="hf-2ykv" id="dawn-plate" src="assets/photos/fog_bigLake.jpg" alt="안개 낀 새벽 호수" />
+    </div>
+    <div data-hf-id="hf-3wez" id="dawn-title" data-layout-allow-overflow>
+      <span data-hf-id="hf-k9kr" class="dawn-ch">시<i data-hf-id="hf-t2t1" class="dawn-ring"></i></span><span data-hf-id="hf-wag3" class="dawn-ch">월<i data-hf-id="hf-iv8p" class="dawn-ring"></i></span><span data-hf-id="hf-byqz" class="dawn-ch">,</span><span data-hf-id="hf-d3cj" class="dawn-ch"> 아<i data-hf-id="hf-k25s" class="dawn-ring"></i></span><span data-hf-id="hf-e1fb" class="dawn-ch">침<i data-hf-id="hf-jnur" class="dawn-ring"></i></span>
+    </div>
+    <div data-hf-id="hf-dv6y" id="dawn-sub">
+      <span data-hf-id="hf-31zg" class="dawn-w">아직</span><span data-hf-id="hf-c1gl" class="dawn-w">아무도</span><span data-hf-id="hf-i7fn" class="dawn-w">깨지</span><span data-hf-id="hf-0fvb" class="dawn-w">않았다</span>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // Camera: one slow push across the whole shot
+      tl.fromTo("#dawn-cam", { scale: 1 }, { scale: 1.07, duration: 7, ease: "power1.inOut" }, 0);
+
+      // "시월, 아침" — each letter drops onto the water, 0.55 s apart
+      const chars = gsap.utils.toArray("#dawn-title .dawn-ch");
+      chars.forEach((ch, i) => {
+        const t = 0.2 + i * 0.55;
+        tl.fromTo(
+          ch,
+          { y: -80, opacity: 0, filter: "blur(6px)" },
+          { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.9, ease: "expo.out" },
+          t,
+        );
+        const ring = ch.querySelector(".dawn-ring");
+        if (ring) {
+          tl.fromTo(
+            ring,
+            { xPercent: -50, yPercent: -50, scale: 0.2 },
+            { scale: 2.6, duration: 1.6, ease: "power2.out" },
+            t + 0.22,
+          );
+          tl.fromTo(ring, { opacity: 0 }, { opacity: 0.8, duration: 0.12, ease: "none" }, t + 0.22);
+          tl.to(ring, { opacity: 0, duration: 1.3, ease: "power1.out" }, t + 0.36);
+        }
+      });
+
+      // "아직 아무도 깨지 않았다" — per word, grey to ink, no movement
+      gsap.utils.toArray("#dawn-sub .dawn-w").forEach((w, i) => {
+        tl.fromTo(
+          w,
+          { opacity: 0, color: "#8a8178" },
+          { opacity: 1, color: "#f4ede3", duration: 0.35, ease: "power2.out" },
+          3.6 + i * 0.11,
+        );
+      });
+
+      // Exit: word by word blur-out, leaving the lake alone before the cut
+      tl.to(chars, { opacity: 0, filter: "blur(10px)", duration: 0.25, ease: "power2.in", stagger: 0.05 }, 5.9);
+      tl.to("#dawn-sub .dawn-w", { opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power2.in", stagger: 0.05 }, 6.05);
+
+      window.__timelines["dawn"] = tl;
+    })();
+  </script>
+</template>

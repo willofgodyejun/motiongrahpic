@@ -1,0 +1,230 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "KHeavy";
+      src: local("AppleSDGothicNeo-Heavy"), local("Apple SD Gothic Neo Heavy");
+      font-weight: 900;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #1b120d;
+    }
+    .d-pane {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .d-fill {
+      position: absolute;
+      inset: 0;
+    }
+    .d-cam {
+      position: absolute;
+      inset: 0;
+    }
+    .d-plate {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      object-fit: cover;
+    }
+    .d-word {
+      position: absolute;
+      font-family: "KHeavy";
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+    /* letters that carry a photograph inside them */
+    .d-ptype {
+      color: transparent;
+      background-size: cover;
+      background-position: 50% 50%;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    .d-ch {
+      display: inline-block;
+    }
+
+    #d-p1 .d-fill { background: #e2541b; }
+    #d-p1-word {
+      left: 170px;
+      top: 130px;
+      font-size: 820px;
+      background-image: url("assets/photos/leaf_tuntorp.jpg");
+    }
+
+    #d-p2 .d-fill { background: #e8b23a; }
+    #d-p2-word {
+      left: 860px;
+      top: 70px;
+      font-size: 940px;
+      background-image: url("assets/photos/ginkgo_tokyo.jpg");
+    }
+
+    #d-p3-word {
+      left: 120px;
+      top: 470px;
+      font-size: 560px;
+      color: #f4ede3;
+      text-shadow: 0 6px 40px rgba(27, 18, 13, 0.35);
+    }
+
+    #d-p4-bg { background: #1b120d; }
+    #d-p4-word {
+      left: 120px;
+      top: 340px;
+      font-size: 420px;
+    }
+    #d-p4-c1 { background-image: url("assets/photos/leaf_tuntorp.jpg"); }
+    #d-p4-c2 { background-image: url("assets/photos/ridge_seorak.jpg"); }
+    #d-p4-c3 { background-image: url("assets/photos/grass.jpg"); }
+    #d-p4-c4 { background-image: url("assets/photos/ginkgo_tokyo.jpg"); }
+
+    #d-p5-word {
+      left: 140px;
+      top: 80px;
+      font-size: 300px;
+      color: #1b120d;
+    }
+
+    #d-p6-word {
+      left: 820px;
+      top: 650px;
+      font-size: 320px;
+      color: #f4ede3;
+      text-shadow: 0 6px 40px rgba(27, 18, 13, 0.4);
+    }
+
+    #d-p7 .d-fill { background: #1b120d; }
+    .d-slot { position: relative; }
+    .d-layer { display: inline-block; }
+    .d-layer + .d-layer { position: absolute; left: 0; top: 0; opacity: 0; }
+    #d-p7-word {
+      left: 230px;
+      top: 170px;
+      font-size: 740px;
+    }
+  </style>
+  <div data-hf-id="hf-y0hq" id="root" data-composition-id="drop" data-width="1920" data-height="1080">
+    <!-- 14.0 붉게 -->
+    <div data-hf-id="hf-bj8l" id="d-p1" class="d-pane clip" data-start="0" data-duration="1" data-track-index="1">
+      <div data-hf-id="hf-tfb2" class="d-fill"></div>
+      <div data-hf-id="hf-buyf" id="d-p1-word" class="d-word d-ptype" data-layout-allow-overflow>붉게</div>
+    </div>
+    <!-- 15.0 더 -->
+    <div data-hf-id="hf-flgt" id="d-p2" class="d-pane clip" data-start="1" data-duration="1" data-track-index="1">
+      <div data-hf-id="hf-o71e" class="d-fill"></div>
+      <div data-hf-id="hf-h4s5" id="d-p2-word" class="d-word d-ptype" data-layout-allow-overflow>더</div>
+    </div>
+    <!-- 16.0 붉게 over 설악 -->
+    <div data-hf-id="hf-xj76" id="d-p3" class="d-pane clip" data-start="2" data-duration="2" data-track-index="1">
+      <div data-hf-id="hf-1sys" id="d-p3-cam" class="d-cam"><img data-hf-id="hf-qkow" class="d-plate" src="assets/photos/ridge_seorak.jpg" alt="설악산 가을 능선" /></div>
+      <div data-hf-id="hf-z9z7" id="d-p3-word" class="d-word">붉게</div>
+    </div>
+    <!-- 18.0 타오르듯 -->
+    <div data-hf-id="hf-4ud3" id="d-p4" class="d-pane clip" data-start="4" data-duration="2" data-track-index="1">
+      <div data-hf-id="hf-ev73" id="d-p4-bg" class="d-fill"></div>
+      <div data-hf-id="hf-dc2c" id="d-p4-word" class="d-word" data-layout-allow-overflow>
+        <span data-hf-id="hf-zztm" id="d-p4-c1" class="d-ch d-ptype">타</span><span data-hf-id="hf-8yh7" id="d-p4-c2" class="d-ch d-ptype">오</span><span data-hf-id="hf-q0r4" id="d-p4-c3" class="d-ch d-ptype">르</span><span data-hf-id="hf-ibsc" id="d-p4-c4" class="d-ch d-ptype">듯</span>
+      </div>
+    </div>
+    <!-- 20.0 흔들리고 over 억새 -->
+    <div data-hf-id="hf-st4n" id="d-p5" class="d-pane clip" data-start="6" data-duration="1" data-track-index="1">
+      <div data-hf-id="hf-65je" id="d-p5-cam" class="d-cam"><img data-hf-id="hf-a5x8" class="d-plate" src="assets/photos/grass.jpg" alt="억새" /></div>
+      <div data-hf-id="hf-a3hw" id="d-p5-word" class="d-word" data-layout-allow-overlap>
+        <span data-hf-id="hf-i017" class="d-ch">흔</span><span data-hf-id="hf-7v0b" class="d-ch">들</span><span data-hf-id="hf-s8o3" class="d-ch">리</span><span data-hf-id="hf-ncav" class="d-ch">고</span>
+      </div>
+    </div>
+    <!-- 21.0 물들고 over 은행나무 길 -->
+    <div data-hf-id="hf-yp43" id="d-p6" class="d-pane clip" data-start="7" data-duration="1" data-track-index="1">
+      <div data-hf-id="hf-7lll" id="d-p6-cam" class="d-cam"><img data-hf-id="hf-8lrt" class="d-plate" src="assets/photos/ginkgo_musashino.jpg" alt="은행나무 길" /></div>
+      <div data-hf-id="hf-sodl" id="d-p6-word" class="d-word">
+        <span data-hf-id="hf-o5kj" class="d-ch">물</span><span data-hf-id="hf-nszf" class="d-ch">들</span><span data-hf-id="hf-hd7r" class="d-ch">고</span>
+      </div>
+    </div>
+    <!-- 22.0 시월 slot montage -->
+    <div data-hf-id="hf-284g" id="d-p7" class="d-pane clip" data-start="8" data-duration="2" data-track-index="1">
+      <div data-hf-id="hf-olcf" class="d-fill"></div>
+      <div data-hf-id="hf-hn3l" id="d-p7-word" class="d-word" data-layout-allow-overflow>
+        <span data-hf-id="hf-gh2b" id="d-p7-c1" class="d-ch d-slot"><span data-hf-id="hf-cgzo" class="d-layer d-ptype" style="background-image: url('assets/photos/leaf_tuntorp.jpg')">시</span><span data-hf-id="hf-un59" class="d-layer d-ptype" style="background-image: url('assets/photos/ridge_naejang.jpg')">시</span><span data-hf-id="hf-sm8z" class="d-layer d-ptype" style="background-image: url('assets/photos/ginkgo_tokyo.jpg')">시</span><span data-hf-id="hf-egbl" class="d-layer d-ptype" style="background-image: url('assets/photos/fog_bled.jpg')">시</span><span data-hf-id="hf-mckx" class="d-layer d-ptype" style="background-image: url('assets/photos/grass.jpg')">시</span><span data-hf-id="hf-o13u" class="d-layer d-ptype" style="background-image: url('assets/photos/ridge_seorak.jpg')">시</span><span data-hf-id="hf-0ke4" class="d-layer d-ptype" style="background-image: url('assets/photos/leaf_tuntorp.jpg')">시</span></span><span data-hf-id="hf-5lko" id="d-p7-c2" class="d-ch d-slot"><span data-hf-id="hf-id4y" class="d-layer d-ptype" style="background-image: url('assets/photos/ridge_seorak.jpg')">월</span><span data-hf-id="hf-ampm" class="d-layer d-ptype" style="background-image: url('assets/photos/ginkgo_musashino.jpg')">월</span><span data-hf-id="hf-6t0s" class="d-layer d-ptype" style="background-image: url('assets/photos/leaf_tuntorp.jpg')">월</span><span data-hf-id="hf-6o0l" class="d-layer d-ptype" style="background-image: url('assets/photos/ridge_naejang.jpg')">월</span><span data-hf-id="hf-ya7v" class="d-layer d-ptype" style="background-image: url('assets/photos/ginkgo_tokyo.jpg')">월</span><span data-hf-id="hf-ydg9" class="d-layer d-ptype" style="background-image: url('assets/photos/grass.jpg')">월</span><span data-hf-id="hf-puvx" class="d-layer d-ptype" style="background-image: url('assets/photos/fog_bigLake.jpg')">월</span></span>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      
+      // 14.0 — 붉게 slams in on the drop (the hit is a set; the settle is the reaction)
+      tl.set("#d-p1-word", { scale: 1.08 }, 0);
+      tl.to("#d-p1-word", { scale: 1, duration: 0.45, ease: "expo.out" }, 0.01);
+      tl.fromTo("#d-p1-word", { backgroundPosition: "50% 30%" }, { backgroundPosition: "50% 70%", duration: 1, ease: "none" }, 0);
+      tl.set("#d-p1-word", { x: -16 }, 0.75);
+      tl.to("#d-p1-word", { x: 0, duration: 0.2, ease: "expo.out" }, 0.76);
+
+      // 15.0 — 더
+      tl.set("#d-p2-word", { scale: 1.1 }, 1);
+      tl.to("#d-p2-word", { scale: 1, duration: 0.4, ease: "expo.out" }, 1.01);
+      tl.fromTo("#d-p2-word", { backgroundPosition: "40% 50%" }, { backgroundPosition: "60% 50%", duration: 1, ease: "none" }, 1);
+
+      // 16.0 — 붉게 over 설악; 17.0 punch-in and the word floods vermillion
+      tl.fromTo("#d-p3-cam", { scale: 1.1 }, { scale: 1, duration: 0.6, ease: "expo.out" }, 2);
+      tl.fromTo("#d-p3-word", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.15, ease: "power3.out" }, 2);
+      tl.set("#d-p3-cam", { scale: 1.15 }, 3);
+      tl.set("#d-p3-word", { color: "#e2541b", scale: 1.04 }, 3);
+      tl.to("#d-p3-word", { scale: 1, duration: 0.3, ease: "expo.out" }, 3.01);
+
+      // 18.0 — 타오르듯: four letters, four photographs, one frame apart
+      gsap.utils.toArray("#d-p4-word .d-ch").forEach((ch, i) => {
+        const t = 4 + i * 0.034;
+        tl.fromTo(ch, { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1.6, duration: 0.001 }, t);
+        tl.to(ch, { scale: 1, duration: 0.3, ease: "expo.out" }, t + 0.001);
+      });
+      tl.fromTo("#d-p4-bg", { backgroundColor: "#1b120d" }, { backgroundColor: "#e2541b", duration: 0.4, ease: "power2.inOut" }, 5);
+      // 19.5 — zoom through "르" into the grass
+      tl.to("#d-p4-word", { scale: 7, transformOrigin: "1050px 230px", duration: 0.5, ease: "power3.in" }, 5.5);
+
+      // 20.0 — 흔들리고 sways like the grass (finite, deterministic)
+      tl.fromTo("#d-p5-cam", { scale: 1.25 }, { scale: 1, duration: 0.5, ease: "expo.out" }, 6);
+      gsap.utils.toArray("#d-p5-word .d-ch").forEach((ch, i) => {
+        tl.fromTo(ch, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25, ease: "expo.out" }, 6 + i * 0.05);
+        tl.fromTo(
+          ch,
+          { rotation: i % 2 ? 7 : -7 },
+          { rotation: i % 2 ? -7 : 7, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 3, transformOrigin: "50% 100%" },
+          6 + i * 0.05,
+        );
+      });
+
+      // 21.0 — 물들고, one letter turns gold every quarter second
+      tl.fromTo("#d-p6-cam", { scale: 1.08 }, { scale: 1, duration: 0.8, ease: "expo.out" }, 7);
+      tl.fromTo("#d-p6-word", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.15, ease: "power3.out" }, 7);
+      gsap.utils.toArray("#d-p6-word .d-ch").forEach((ch, i) => {
+        tl.set(ch, { color: "#e8b23a" }, 7.25 + i * 0.25);
+      });
+
+      // 22.0 — 시월: the photographs inside the letters roll like a slot machine
+      tl.set("#d-p7-word", { scale: 1.06 }, 8);
+      tl.to("#d-p7-word", { scale: 1, duration: 0.4, ease: "expo.out" }, 8.01);
+      ["#d-p7-c1", "#d-p7-c2"].forEach((sel) => {
+        const layers = gsap.utils.toArray(sel + " .d-layer");
+        layers.forEach((layer, i) => {
+          if (i === 0) return;
+          tl.set(layers[i - 1], { opacity: 0 }, 8 + i * 0.25);
+          tl.set(layer, { opacity: 1 }, 8 + i * 0.25);
+        });
+      });
+      // 23.5 — torn apart
+      tl.to("#d-p7-c1", { x: -1100, duration: 0.45, ease: "power3.in" }, 9.5);
+      tl.to("#d-p7-c2", { x: 1100, duration: 0.45, ease: "power3.in" }, 9.5);
+
+      window.__timelines["drop"] = tl;
+    })();
+  </script>
+</template>

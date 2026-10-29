@@ -1,0 +1,92 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "KHeavy";
+      src: local("AppleSDGothicNeo-Heavy"), local("Apple SD Gothic Neo Heavy");
+      font-weight: 900;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #e2541b;
+    }
+    #outro-word {
+      position: absolute;
+      left: 150px;
+      top: 120px;
+      font-family: "KHeavy";
+      font-weight: 900;
+      font-size: 640px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+      color: transparent;
+      background-image: url("assets/photos/fog_bigLake.jpg");
+      background-size: cover;
+      background-position: 50% 40%;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    #outro-latin {
+      position: absolute;
+      right: 150px;
+      top: 800px;
+      font-family: "League Gothic";
+      font-size: 150px;
+      line-height: 1;
+      letter-spacing: 0.4em;
+      color: #f4ede3;
+      white-space: nowrap;
+    }
+    .outro-l {
+      display: inline-block;
+      opacity: 0;
+    }
+    #outro-credit {
+      position: absolute;
+      left: 156px;
+      bottom: 40px;
+      width: 1100px;
+      font-family: "Inter";
+      font-size: 15px;
+      line-height: 1.45;
+      color: #f4ede3;
+      opacity: 0;
+    }
+  </style>
+  <div data-hf-id="hf-x7nm" id="root" data-composition-id="outro" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-mnc6" id="outro-word" data-layout-allow-overflow>시월</div>
+    <div data-hf-id="hf-82bv" id="outro-latin">
+      <span data-hf-id="hf-adfe" class="outro-l">O</span><span data-hf-id="hf-f53q" class="outro-l">C</span><span data-hf-id="hf-kb33" class="outro-l">T</span><span data-hf-id="hf-st9a" class="outro-l">O</span><span data-hf-id="hf-eqsp" class="outro-l">B</span><span data-hf-id="hf-echo" class="outro-l">E</span><span data-hf-id="hf-l3p5" class="outro-l">R</span>
+    </div>
+    <div data-hf-id="hf-xg71" id="outro-credit" data-layout-ignore>
+      Photos via Wikimedia Commons — Bonnie Moreland (PD) · Davy Sims (CC BY-SA 4.0) · Christophe95 (CC BY-SA 4.0) ·
+      Marcella Astrid (CC BY-SA 3.0) · Michael Garlick (CC BY-SA 2.0) · Douglas P. Perkins (CC BY-SA 3.0) ·
+      Tomi Mäkitalo (CC BY-SA 3.0) · W.carter (CC BY 4.0) · Jason Zhang (CC BY-SA 3.0). Music: HeyGen.
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // 27.0 — the last hit: 시월 lands with the dawn lake inside it
+      tl.set("#outro-word", { scale: 1.1 }, 0);
+      tl.to("#outro-word", { scale: 1, duration: 0.6, ease: "expo.out" }, 0.01);
+      tl.fromTo("#outro-word", { backgroundPosition: "50% 30%" }, { backgroundPosition: "50% 55%", duration: 3, ease: "power1.out" }, 0);
+
+      gsap.utils.toArray("#outro-latin .outro-l").forEach((l, i) => {
+        tl.fromTo(
+          l,
+          { opacity: 0, filter: "blur(4px)" },
+          { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+          0.3 + i * 0.06,
+        );
+      });
+
+      tl.fromTo("#outro-credit", { opacity: 0 }, { opacity: 0.85, duration: 0.4, ease: "power1.out" }, 0.8);
+
+      window.__timelines["outro"] = tl;
+    })();
+  </script>
+</template>

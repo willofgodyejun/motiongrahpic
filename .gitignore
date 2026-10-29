@@ -1,0 +1,6 @@
+node_modules/
+.hyperframes/
+.waveform-cache/
+renders/
+.DS_Store
+.thumbnails/
